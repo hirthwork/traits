@@ -1,0 +1,22 @@
+import package ;
+
+project
+    : requirements <include>.
+    ;
+
+using gcc
+    :
+    :
+    : <compileflags>-std=c++0x <compileflags>-Wall <compileflags>-Wextra
+      <compileflags>-Werror <compileflags>-pedantic-errors
+    ;
+
+explicit test ;
+
+package.install dist
+    : <install-header-subdir>reinvented-wheels
+    :
+    :
+    : cheapcopy.hpp
+    ;
+

@@ -1,0 +1,38 @@
+Reinvented traits
+========================
+
+Introduction
+------------
+The purpose of this library is to provide several type traits userful for
+programmers.
+
+Please, note, that this library was intended to be C++0x compliant, not
+C++03 or C++98.
+
+Rationale
+---------
+C++ has a lot of userful type traits, which covers almost all programmers
+needs, but there are still couple of them I want to use regulary and in
+handy way.
+
+Overview
+--------
+  * `cheapcopy.hpp` contains definition of two traits:
+    * `TIsCheapCopyable` has static const member `Value_` which is true
+      for types which are smaller that `void*` and trivially copyable, so,
+        they can be passed to functions by value, instead of const reference.
+    * `TCheapCopy` defines `TValueType` same as template parameter for cheap
+      copyable types and const reference otherwise.
+
+Installation
+------------
+You require bjam (a.k.a. boost build) to install this package.
+In order to launch sanity test you need Boost.Test to be installed.
+
+  * In order to install, execute bjam with argument
+    `dist --includedir=<prefix>`, where `<prefix>` is the installation path
+    where library will be installed. More precisely, `reinvented-wheels`
+    subfolder will be created, containing all required headers.
+  * In order to launch the test, execute bjam with `-d0 test` argument and
+    ensure that return code was 0.
+
